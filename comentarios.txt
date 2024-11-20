@@ -1,0 +1,6 @@
+Padrão MVC:
+Model-  Tratamento de dados.
+View-   o que o usuário vê.
+Controller- regras de negócio, o que deve ou não acontecer.
+
+Neste padrão fica mais fácil a organização do código e da aplicação, pois cada segmento está separado em pastas especificas
