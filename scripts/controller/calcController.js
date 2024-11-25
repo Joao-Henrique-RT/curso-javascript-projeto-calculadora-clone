@@ -26,6 +26,14 @@ class CalcController{
        },1000)
 
     }
+
+    initButtonsEvents(){
+        //Metodo para pegar os elementos HTML (botoes). Utilização do QuerySelectorAll para  pegar todos os elementos, utilizando query sem All buscaria apenas o primeiro
+        
+       let buttons = document.querySelectorAll("#buttons > g, #parts > g")
+    }
+
+
     //Metodo para otimizar escrita do metodo inicialize, contem a data atual e horario
     setDisplayDateTime(){
         this.displayDate = this.currentDate.toLocaleDateString(this.locale)
