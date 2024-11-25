@@ -4,28 +4,73 @@ class CalcController{
 
     constructor(){
         //palavra reservada THIS para referenciar atributos e objetos
-         this._displayCalc = "0";
-         this._dataAtual;
+        //Adicionar EL ao final da variavel é uma prática de costume para indiccar que estamos mexendo em um ELemento
+        this.locale = "pt-BR"
+        this._displayCalcEl = document.querySelector('#display');
+        this._dateEl = document.querySelector('#data');
+        this._timeEl = document.querySelector('#hora');
+        this._currentDate;
+        this.inicialize();
+        
     }
+
+    inicialize(){
+        //Método que irá iniciar tudo o que ocorrerá na calculadora
+
+        //chamando Método para mostrar data e hora no momento em que abrimos a página
+        this.setDisplayDateTime()
+
+        //Metodo para atualizar a data ser atualizada a cada segundo
+       setInterval(()=>{
+        this.setDisplayDateTime()
+       },1000)
+
+    }
+    //Metodo para otimizar escrita do metodo inicialize, contem a data atual e horario
+    setDisplayDateTime(){
+        this.displayDate = this.currentDate.toLocaleDateString(this.locale)
+        this.displayTime = this.currentDate.toLocaleTimeString(this.locale)
+    }
+
+    get displayTime(){
+        //MEtodo GET para atribuir valor 
+        return this._timeEl.innerHTML;
+    }
+
+    set displayTime(value){ 
+        this._timeEl.innerHTML = value
+        //SET para colocar o valor
+    }
+    get displayDate(){
+        //MEtodo GET para atribuir valor 
+        return this._dateEl.innerHTML;
+    }
+
+    set displayDate(value){ 
+        this._dateEl.innerHTML = value
+        //SET para colocar o valor
+    }
+
 
     get displayCalc(){
         //GETTER - Pegar o valor do atributo displayCalc
-        return this.displayCalc;
+        return this._displayCalcEl.innerHTML;
     }
 
-    set displayCalc(valor){
-        //SETTER - Colocar um valor dentro do atributo display calc. Precisa necessáriamente de um parametro (valor) para ser atribuido 
-        this._displayCalc = valor ;
+    set displayCalc(value){
+        //SETTER - Colocar um value dentro do atributo display calc. Precisa necessáriamente de um parametro (value) para ser atribuido 
+        this._displayCalcEl.innerHTML = value ;
 
     }
 
-    get dataAtual(){
-        return this._dataAtual;
+    get currentDate(){
+        return new Date()
     }
 
-    set dataAtual(data){
-        this._dataAtual = data
+    set currentDate(value){
+        this.currentDate = value
     }
+   
 
 
 
