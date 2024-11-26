@@ -11,7 +11,7 @@ class CalcController{
         this._timeEl = document.querySelector('#hora');
         this._currentDate;
         this.inicialize();
-        
+        this.initButtonsEvents();
     }
 
     inicialize(){
@@ -25,12 +25,26 @@ class CalcController{
         this.setDisplayDateTime()
        },1000)
 
+       
+
     }
+
+   
 
     initButtonsEvents(){
         //Metodo para pegar os elementos HTML (botoes). Utilização do QuerySelectorAll para  pegar todos os elementos, utilizando query sem All buscaria apenas o primeiro
         
        let buttons = document.querySelectorAll("#buttons > g, #parts > g")
+
+       //laço para percorrer por cada botão que foi clicado, o EventListener só pode ser chamado com uma ocorrencia, no caso precisamos do laço forEach para pegar cada vez que o botão é clicado
+        buttons.forEach((btn, index)=>{
+            btn.addEventListener('click', e=>{
+               console.log((btn.className.baseVal.replace('btn-',"")))
+
+                
+            })
+        })
+
     }
 
 
